@@ -1,0 +1,196 @@
+
+.banner_image_text ul {
+    display: flex;
+    list-style: none;
+    width: 150%;
+    padding: 10px;
+    align-items: center;
+    margin: 0%;
+    
+}
+.banner_image_text li {
+    float: left;
+    color: rgb(180, 233, 255);
+    width: 20%;
+    text-align: center;
+    line-height: 16px;
+}
+.banner_image_text li i {
+    width: 100%;
+    display: inline-table;
+    margin-bottom: 8px;
+}
+
+.banner_image_text {
+    width: 100%;
+    float: left;
+    position: relative;
+    padding: 0px 20px;
+}
+.banner_image_text h4 {
+    font-size: 31px;
+    width: 100%;
+    float: left;
+    color: rgb(255, 255, 255);
+    line-height: 39px;
+    margin-top: 44px;
+    font-weight: normal;
+}
+.banner_image_text h4 span {
+    font-size: 45px;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    display: inline-table;
+    float: left;
+    width: 100%;
+    margin-bottom: 12px;
+}
+.banner_image_text p {
+    width: 100%;
+    float: left;
+    color: rgb(226, 255, 219);
+    line-height: 24px;
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+/* Signature */
+/* .banner {
+    background: #61a90e;
+    background: linear-gradient(39deg, #5ca509 0%, #12630a 100%);
+    width: 100%;
+    float: left;
+    height: 500px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+#whatDsc {
+    width: 100%;
+    float: left;
+    margin: 100px 0 100px 0;
+}
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.whatdsc {
+    width: 100%;
+    float: left;
+    margin: 0px 0 0 0;
+}
+.whatdsc_inner {
+    display: table;
+    margin: 20px auto 0;
+    width: 80%;
+}
+.block_heading {
+    width: 100%;
+    display: inline-table;
+}
+.new_digital_signature_h1 h1 {
+    width: 100%;
+    float: left;
+    text-align: left;
+    font-size: 26px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 53px;
+    position: relative;
+}
+.whatdsc p {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 14px;
+    color: #404840;
+    position: relative;
+    padding: 0 0 0 0px;
+    line-height: 21px;
+    float: left;
+    width: 100%;
+}
+.subjectUser_img img {
+    float: right;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 30px 0px 60px 0 rgb(0 0 0 / 30%);
+}
+
+
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.new_digital_signature_h1 h1 {
+    width: 100%;
+    float: left;
+    text-align: left;
+    font-size: 26px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 53px;
+    position: relative;
+}
+.dcClasses {
+    width: 100%;
+    float: left;
+    margin-top: 48px;
+}
+.block_heading h2 {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 26px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 53px;
+    position: relative;
+}
+.block_heading {
+    width: 100%;
+    display: inline-table;
+}
+.dcClasses Span {
+    width: 100%;
+    display: inline-table;
+    margin-bottom: 9px;
+    line-height: 34px;
+}
+.dcClasses Span:last-child {
+    width: 89px;
+    height: 89px;
+    background: #fda25f;
+    display: inline-table;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 62px;
+    border-radius: 90px;
+    color: #fff;
+    font-style: normal;
+    line-height: 88px;
+}
+.dscMandatory_det h3, .dcClasses h3 {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 19px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 27px;
+}
+.dscMandatory_det p, .dcClasses p, .whatdsc p {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 14px;
+    color: #404840;
+    position: relative;
+    padding: 0 0 0 0px;
+    line-height: 21px;
+    float: left;
+    width: 100%;
+}
+.col-md-12{
+    float: left;
+} */
