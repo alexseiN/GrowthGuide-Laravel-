@@ -13,10 +13,10 @@
                     <strong>{{session()->get('success1')}}</strong>
                 </div>
                 @endif
-            <form method="POST" action="/save-form/{'ser_id'}" enctype="multipart/form-data">
+            <form method="POST" action="/save-dashboardform/{'ser_id'}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                        <label class="lead" for="Category_list"> Select Service </label>
+                        <label class="lead" for="Category_list"> Select Service Type</label>
                         <select name="ser_id" id="ser_id" style="width:100%">
                         @foreach($services as $service)
                             @if(array_key_first($_GET) == $service->id)
@@ -49,15 +49,15 @@
 @push('scripts')
     <script>
         window._rav = window._rav || {};
-        _rav.save_route = "{{ route('save.form') }}";
+        _rav.save_route = "{{ route('save.dashboardform') }}";
         _rav.boardData = @json($builder_data);
     </script>
 
-    <script src="{{ asset('js/formbuilder/main.js') }}"></script>
+        <script src="{{ asset('js/formbuilder/main.js') }}"></script>
     <script>
         var select = document.querySelector('#ser_id');
         select.addEventListener('change', function(){
-            window.location.href="/form?"+select.value;
+            window.location.href="/form-dashboard?"+select.value;
         })
     </script>
 @endpush

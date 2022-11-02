@@ -6,7 +6,7 @@
 <div class="wrapper">
     @include('layouts.sidebar')
     <div class="main_content">
-        <div class="header">Welcome!! Have a nice day.</div>  
+        <div class="header">Welcome!! Have a nice day.</div>
         <div class="info">
             <div class="col-6 col-lg-6 col-md-6">
             @if(session()->has('success'))
@@ -28,10 +28,10 @@
 
                     </div>
 </div>
-                    
-    
-    
-    
+
+
+
+
     <button type="submit" class="btn btn-primary">Add category</button>
   </form>
 
@@ -49,6 +49,10 @@
                     <div class="form-group">
                         <label for="playername">Service Name</label>
                       <input type="text" class="form-control" id="service" placeholder="Enter Service Name" name="service" value="{{old('service')}}">
+                      <label for="playername">Service Price</label>
+                      <div class="inr">
+                      <input type="number" class="form-control" id="price" placeholder="Enter Service Price" name="price" data-type="currency" value="{{old('price')}}">
+                      </div>
                       @if($errors->has('service'))
                       <p class="text-danger">{{$errors->first('service')}}</p>
                       @endif
@@ -66,10 +70,10 @@
                        </div>
 
                     </div>
-                    
-    
-    
-    
+
+
+
+
     <button type="submit" class="btn btn-primary">Add Service</button>
   </form>
 

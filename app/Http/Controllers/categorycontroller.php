@@ -13,7 +13,7 @@ class categorycontroller extends Controller
         $services=service::all();
         return view('main.index',['categories'=>$categories,'services'=>$services]);
     }
-    
+
     public function serviceform(){
         $categories=category::all();
         $services=service::all();
@@ -29,12 +29,12 @@ class categorycontroller extends Controller
         return view('admin.showcategory&services',['categories'=>$categories,'services'=>$services]);
     }
     public function editplayer(){
-        
+
         $players=Player::latest()->paginate(10);
 
 return view('admin.editplayer',['players'=>$players]);
     }
-    
+
     public function addcategory(Request $request){
         $request->validate([
             'category'=>'required'
@@ -42,8 +42,8 @@ return view('admin.editplayer',['players'=>$players]);
         $category = new category;
 
         $category->category_name=$request->category;
-        
-        
+
+
         $category->save();
         return redirect('/admin')->withSuccess('New Category Added');
     }
@@ -55,8 +55,9 @@ return view('admin.editplayer',['players'=>$players]);
 
         $service->service_name=$request->service;
         $service->category_id=$request->category_list;
-        
-        
+        $service->price=$request->price;
+
+
         $service->save();
         return redirect('/admin')->withSuccess1('New Service Added');
     }
@@ -73,28 +74,29 @@ return view('admin.editplayer',['players'=>$players]);
     public function updatecategory(Request $request,$id){
         $request->validate([
             'category'=>'required',
-            
-            
+
+
         ]);
         $category= category::where('id',$id)->first();
-         
+
         $category->category_name=$request->category;
-       
+
         $category->update();
         return redirect('/categories&services');
     }
     public function updateservice(Request $request,$id){
         $request->validate([
             'service'=>'required',
-            'category_list'=>'required'
-            
-            
+            'category_list'=>'required',
+            'price'=>'required'
+
         ]);
         $service= service::where('id',$id)->first();
-         
+
         $service->service_name=$request->service;
         $service->category_id=$request->category_list;
-       
+        $service->price = $request->price;
+
         $service->update();
         return redirect('/categories&services');
     }
@@ -109,9 +111,9 @@ return view('admin.editplayer',['players'=>$players]);
     }
     public function servicedelete($id){
         $service= service::where('id',$id)->first();
-        
 
-       
+
+
         $service->delete();
         return redirect('/categories&services');
     }

@@ -45,7 +45,7 @@ body{
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
-}    
+}
 .menu li a{
   color:white;
 }
@@ -62,11 +62,11 @@ body{
 .wrapper .sidebar ul li:hover{
   background-color: #594f8d;
 }
-    
+
 .wrapper .sidebar ul li:hover a{
   color: #fff;
 }
- 
+
 .wrapper .sidebar .social_media{
   position: absolute;
   bottom: 0;
@@ -115,7 +115,7 @@ padding-left:15px ;
 margin-top: 10px;
 }
 .pcollapse a{
-  
+
   margin-top: 10px;
   }
   textarea{
@@ -125,7 +125,7 @@ margin-top: 10px;
 
 
 
-  
+
 /*!
 * Start Bootstrap - Blog Post v5.0.8 (https://startbootstrap.com/template/blog-post)
 * Copyright 2013-2022 Start Bootstrap
@@ -11412,4 +11412,17 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.inr{
+	position: relative;
+}
+.inr input{
+	padding-left:15px;
+}
+.inr:before {
+	position: absolute;
+    content:"₹";
+    left:5px;
+	top:5px;
 }

@@ -22,7 +22,7 @@ class App extends Component {
 	handleFormSave = () => {
 		this.setState((state) => {
 			return {
-				saveForm: true, 
+				saveForm: true,
 				notification: Object.assign({...state.notification}, {show: false})
 			};
 		});
@@ -41,8 +41,8 @@ class App extends Component {
 
 		this.setState((state) => {
 			return {
-				saveForm: false, 
-				formData: JSON.stringify(payload),  
+				saveForm: false,
+				formData: JSON.stringify(payload),
 				notification: Object.assign({...state.notification}, {show: true, type, msg})
 			};
 		});
@@ -56,9 +56,9 @@ class App extends Component {
 				<Board initSave={saveForm} onSaveEnd={this.handleComplete} />
 				<Pallet />
 
-				<SaveBtnArea 
-					onFormSave={this.handleFormSave} 
-					notification={notification} 
+				<SaveBtnArea
+					onFormSave={this.handleFormSave}
+					notification={notification}
 					onMsgBoxClose={this.handleMsgBoxClose}
 					disableBtn={saveForm}
 					formData={formData}

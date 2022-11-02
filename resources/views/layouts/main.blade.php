@@ -13,27 +13,27 @@
 
 	@include('layouts.head')
 	<body>
-		
-			
+
+
 
 
 
 	<div class="wrapper">
-	
+
     @include('layouts.sidebar')
 </div>
 <div id="container">
 			<div id="content-wrap">
 
-			
-          	
-			
+
+
+
 				<div class="container">
 					@include('layouts.nav')
 					@yield('content')
 				</div>
 			</div>
-		
+
 		</div>
 </div>
 			<footer id="footer">

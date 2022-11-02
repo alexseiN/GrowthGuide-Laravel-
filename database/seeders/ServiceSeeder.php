@@ -16,7 +16,8 @@ class ServiceSeeder extends Seeder
     {
         service::create([
             'service_name' => 'First Service',
-            'category_id' => 1
+            'category_id' => 1,
+            'price' => 1,
         ]);
     }
 }

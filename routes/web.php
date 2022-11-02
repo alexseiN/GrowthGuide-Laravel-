@@ -5,6 +5,7 @@ use App\Http\Controllers\categorycontroller;
 use App\Http\Controllers\FormBuilder;
 use App\Http\Controllers\FormController;
 
+use App\Http\Controllers\RazorpayPaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +18,17 @@ use App\Http\Controllers\FormController;
 */
 
 Route::get('/form', [FormBuilder::class,'showBuilder'])->name('app.home');
+Route::get('/form-dashboard', [FormBuilder::class,'showDashboardBuilder'])->name('app.dashboardform');
 //Route::get('/form', [FormBuilder::class,'showBuilder'])->name('form');
 
 Route::get('/show-form', [FormBuilder::class,'showForm'])->name('show.form');
+Route::get('/show-dashboardform', [FormBuilder::class,'showDashboardForm'])->name('show.dashboardform');
 Route::post('/save-form', [FormBuilder::class,'saveForm'])->name('save.form');
+Route::post('/save-dashboardform', [FormBuilder::class,'saveDashboardForm'])->name('save.dashboardform');
 Route::post('/submit-form', [FormBuilder::class,'handleFormRequest'])->name('submit.form');
 
 
-Route::get('/', [categorycontroller::class,'main']);
+Route::get('/', [categorycontroller::class,'main'])->name('app.homepage');
 
 Route::get('/service', [categorycontroller::class,'serviceform']);
 
@@ -41,3 +45,7 @@ Route::get('/service-delete/{id}', [categorycontroller::class, 'servicedelete'])
 
 Route::post('/form/respond', [FormController::class, 'respond'])->name('form.respond');
 Route::get('/forms/responses', [FormController::class, 'allResponses'])->name('forms.responses');
+
+Route::get('razorpay-payment-page', [RazorpayPaymentController::class, 'response'])->name('payment_response.page');
+Route::post('razorpay-payment-page', [RazorpayPaymentController::class, 'index'])->name('payment.page');
+Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');

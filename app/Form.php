@@ -15,4 +15,8 @@ class Form extends Model
     {
         return $this->belongsToMany('App\Field', 'form_fields')->withPivot('id', 'options');
     }
+    public function dbfields()
+    {
+        return $this->belongsToMany('App\Field', 'db_form_fields')->withPivot('id', 'options');
+    }
 }

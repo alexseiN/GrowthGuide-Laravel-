@@ -60064,7 +60064,7 @@ var currentlyProcessingQueue;
   didWarnUpdateInsideUpdate = false;
   currentlyProcessingQueue = null;
 
-  
+
 }
 
 function createUpdateQueue(baseState) {
@@ -64379,7 +64379,7 @@ function insertNonHydratedInstance(returnFiber, fiber) {
               break;
 
             case SuspenseComponent:
-              
+
               break;
           }
 
@@ -79705,7 +79705,7 @@ function addStyle (obj, options) {
 	// If a transform function was defined, run it on the css
 	if (options.transform && obj.css) {
 	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css) 
+		 ? options.transform(obj.css)
 		 : options.transform.default(obj.css);
 
 	    if (result) {
@@ -81644,6 +81644,19 @@ function (_Component2) {
           helpText = "used for date input- resulting value includes the year, month, and day";
           break;
 
+        case "file":
+        fieldMarkup = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "file",
+            className: fieldClass,
+            __source: {
+            fileName: _jsxFileName,
+            lineNumber: 83
+            }
+        });
+        helpText = "used for choose file";
+        break;
+
+
         default:
           fieldMarkup = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             type: field.additionalConfig.inputType,
@@ -81652,7 +81665,7 @@ function (_Component2) {
             placeholder: "",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 94
             }
           });
           helpText = "used for normal text input, email or phone number field";
@@ -81980,6 +81993,13 @@ function (_Component) {
         isRequired: false,
         additionalConfig: {
           textAreaRows: 3
+        }
+      }, {
+        id: 5,
+        type: 'file',
+        label: 'FileBrowser',
+        isRequired: false,
+        additionalConfig: {
         }
       }]
     };

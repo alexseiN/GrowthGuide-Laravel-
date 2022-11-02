@@ -5,7 +5,7 @@
         <ul>
             <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
             <li class="nav-item">
-                
+
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-user"></i>
@@ -13,7 +13,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="pcollapse">
-                        
+
                         <a class="collapse-item" href="/admin">Add</a>
                         <hr>
                         <a class="collapse-item" href="/categories&services">Edit </a>
@@ -21,7 +21,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                
+
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsethree"
                     aria-expanded="true" aria-controls="collapsethree">
                     <i class="fas fa-user"></i>
@@ -29,26 +29,28 @@
                 </a>
                 <div id="collapsethree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="pcollapse">
-                        
-                        <a class="collapse-item" href="{{ route('app.home') }}">Create Services Form</a>
+
+                        <a class="collapse-item" href="{{ route('app.home', 1) }}">Create Services Form</a>
+                        <hr>
+                        <a class="collapse-item" href="{{ route('app.dashboardform', 1) }}">Create Dashboard Form</a>
                         <hr>
                         <a class="collapse-item" href="/categories&services">Create User Form </a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                
+
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour"
                     aria-expanded="true" aria-controls="collapsefour">
                     <i class="fas fa-user"></i>
                     <span>Forms Responses</span>
                 </a>
                 <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="pcollapse">                        
+                    <div class="pcollapse">
                         <a class="collapse-item" href="{{ route('forms.responses') }}">All Forms Response</a>
                     </div>
                 </div>
             </li>
-        </ul> 
-       
+        </ul>
+
     </div>

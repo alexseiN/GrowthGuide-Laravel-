@@ -70,7 +70,7 @@ export default class ConfigForm extends Component {
             const { label, isRequired, additionalConfig } = props.field;
 
             return {
-                label, 
+                label,
                 isRequired,
                 ...additionalConfig,
                 allowDataFill: false
@@ -109,27 +109,27 @@ export default class ConfigForm extends Component {
     handleFormSubmit = (id, e) => {
         const {label, isRequired, inputType, textAreaRows, listOptions} = this.state;
         let additionalConfig;
-        
+
         switch (this.props.field.type) {
             case "select":
                 additionalConfig = {listOptions};
                 break;
-        
+
             case "textarea":
                 additionalConfig = {textAreaRows};
                 break;
-        
+
             case "date":
                 additionalConfig = {};
                 break;
-        
+
             default:
                 additionalConfig = {inputType};
                 break;
         }
 
         this.props.onConfigSubmit({
-            id, 
+            id,
             payload: {label, isRequired, additionalConfig}
         });
 
@@ -150,14 +150,14 @@ export default class ConfigForm extends Component {
 
             case "textarea":
                 extraConfigs = <TextareaRows onRowsChange={this.handleRowsChange} currRows={this.state.textAreaRows} />
-                
+
                 break;
-        
+
             case "date":
                 extraConfigs = null;
-                
+
                 break;
-        
+
             default:
                 let allowedTypes = [
                     {id: 1, label: "Normal Text", type: "text"},
@@ -167,12 +167,12 @@ export default class ConfigForm extends Component {
 
                 extraConfigs = <div className="form-group">
                                     {   allowedTypes.map((item) => {
-                                        return <InputFieldType 
+                                        return <InputFieldType
                                             key={item.id}
-                                            label={item.label} 
-                                            type={item.type} 
-                                            checked={this.state.inputType == item.type} 
-                                            onTypeSelect={this.handleTypeSelect} 
+                                            label={item.label}
+                                            type={item.type}
+                                            checked={this.state.inputType == item.type}
+                                            onTypeSelect={this.handleTypeSelect}
                                             />
                                         })
                                     }

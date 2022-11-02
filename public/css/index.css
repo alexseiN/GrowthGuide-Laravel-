@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+
+.sideimg{
+    border: 2px solid grey;
+    height: 97vh;
+}
+.sideimg img{
+    display: flex;
+    justify-content: center;
+    height: 97vh;
+    width: 100%;
+}
+
+.right .rightwrapper .icons{
+    margin-top: 25px;
+    
+}
+.order{
+    margin: 1%;
+}
+.mid
+{
+    text-align: center;
+}
+.right .rightwrapper .order{
+    margin-top: 50px;
+    
+}
+.inner{
+    text-align: center;
+    margin-left: 23%;
+}
+.border{
+    margin: 5%;
+    border-bottom: 2px solid black;
+}
+.payment{
+    margin: 2% 2%;
+}
+.payment .alert{
+    width: 80%;
+    
+    height: 20vh;
+}
+table th,td{
+    width: 70%;
+    border: none;
+    line-height: 14px;
+    
+}
+table tbody .bord{
+    border: 2px solid rgb(196, 244, 196);
+    border-bottom: hidden;
+    border-left: hidden;
+    border-right: hidden;
+}
+.payment .btn{
+ 
+width: 100%;
+}

@@ -33,7 +33,6 @@
   <link rel="stylesheet" href="css/Common.css">
 </head>
 
-<>
   <!-- Spinner Start -->
   <div id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -89,16 +88,16 @@
         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Our Services</a>
         <div class="dropdown-menu bg-light border-0 m-0">
           @foreach($services as $service)
-            <a href="/show-form" class="dropdown-item">{{$service->id}}
+            <a href="{{ route('show.form', $service->id) }}" class="dropdown-item">{{$service->id}}
             {{$service->service_name}}</a>
-        
+
                         @endforeach
                       </div>
                     </div>
-                        
 
 
-        
+
+
         <div class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
           <div class="dropdown-menu bg-light border-0 m-0">
@@ -221,11 +220,11 @@
         </div>
         <div class="col">
           <p class="pull-right">
-            Every GST registered organization in India is legally responsible for filing a total of 26 GST return filings in a financial year. It may sound problematic to meet up the regulations but with the GST experts’ proper online guidance in Online Legal India, you would be able to complete all the needful steps with ease. The taxpayers are liable to pay the GST filings within a preset time as the Govt. of India use these returns to evaluate the entire tax liability in the country.            
+            Every GST registered organization in India is legally responsible for filing a total of 26 GST return filings in a financial year. It may sound problematic to meet up the regulations but with the GST experts’ proper online guidance in Online Legal India, you would be able to complete all the needful steps with ease. The taxpayers are liable to pay the GST filings within a preset time as the Govt. of India use these returns to evaluate the entire tax liability in the country.
           </p>
           <h3>With the help of our CA expert from Online Legal India™ get your GST Return filing done in few clicks.</h3>
           <div class="pannel-heading" role="tab" id="headingOne">
-            <h6 class="pannel-title">   
+            <h6 class="pannel-title">
             <a role="button">Who is Liable for GST filling
             </a>
           </h6>
@@ -237,9 +236,9 @@
             <li>GST filing for input/purchase</li>
             <li>GST filing for output/supply</li>
           </ul>
-          
+
           <div class="pannel-heading" role="tab" id="headingOne">
-            <h6 class="pannel-title">   
+            <h6 class="pannel-title">
             <a role="button">Late Fees/Penalty For Failing to Filling The Return On Time
             </a>
           </h6>
@@ -269,13 +268,13 @@
                     <div class="row g-0">
                       <div class="col-lg-6">
                         <div class="card-body p-md-5 mx-md-4">
-          
+
                           <div class="text-center">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                               style="width: 185px;" alt="logo">
                             <h4 class="mt-1 mb-5 pb-1">We are a Team</h4>
                           </div>
-          
+
                           <form>
                             <h2>GST Return Form</h2>
                             <p>Submit your details here</p>
@@ -291,7 +290,7 @@
                                 <label for="exampleInputEmail1">Your Phone Number</label>
                                 <input type="phone number" class="form-control" id="" placeholder="Phone Number without (0 or +91)">
                             </div>
-            
+
                             <div class="form-group">
                                 <label for="exampleInputPassword1">No. of Employees</label>
                                 <input type="text" class="form-control" id="" placeholder="Employees No">
@@ -346,16 +345,16 @@
                                   <label class="radio" for="Standard">Standard Package &nbsp &nbsp &nbsp &nbsp Rs4999</label><br>
                                   <input type="radio" id="Premium" name="Package" value="premium">
                                   <label  class="radio" for="Premium">Premium Package &nbsp &nbsp &nbsp &nbsp Rs7999</label>
-                            
+
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">I agree to receive Updates over
                                     call,Email</label>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
-          
+
                           </form>
-          
+
                         </div>
                       </div>
                       <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
@@ -783,3 +782,4 @@
   </body>
 
 </html>
+
