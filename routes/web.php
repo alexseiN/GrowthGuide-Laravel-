@@ -51,18 +51,3 @@ Route::get('razorpay-payment-page', [RazorpayPaymentController::class, 'response
 Route::post('razorpay-payment-page', [RazorpayPaymentController::class, 'index'])->name('payment.page');
 Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
 
-Auth::routes(['verify' => true, 'login' => true, 'register' => true]);
-
-Route::get('google',function(){
-
-    return view('googleAuth');
-
-});
-
-Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
-
-Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
