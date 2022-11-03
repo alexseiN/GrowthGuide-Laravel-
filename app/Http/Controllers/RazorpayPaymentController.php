@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Razorpay\Api\Api;
 use App\Models\service;
+use App\Models\User;
 use App\Models\category;
+use App\Models\verifiedUser;
 use Session;
 use Exception;
 
@@ -24,17 +27,18 @@ class RazorpayPaymentController extends Controller
         $services = service::all();
         $categories = category::all();
         $data = $request;
+        Session::put('email', $request->email);
+        Session::put('service_id', $service_id);
         return view('razorpayView', $data, ['categories'=>$categories,'services'=>$services, 'service_price'=>$service_price, 'service_name'=>$service_name]);
     }
 
-    public function response()
+    public function response(Request $request)
     {
-        $service_id = 1;
-        $service_price = service::where('id', $service_id)->pluck('price')[0];
-        $service_name = service::where('id', $service_id)->pluck('service_name')[0];
-        $services = service::all();
-        $categories = category::all();
-        return view('razorpayView', ['categories'=>$categories,'services'=>$services, 'service_price'=>$service_price, 'service_name'=>$service_name]);
+        $email = Session::get('email');
+        $service_id = Session::get('service_id');
+        verifiedUser::updateOrCreate(['email' => $email], ['provider_id' => $service_id]);
+        User::updateOrCreate(['email' => $email ,'provider_id' => $service_id, 'password' => md5("123456") ,'name' => 'username']);
+        return view('auth.login');
     }
 
 

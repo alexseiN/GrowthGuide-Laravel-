@@ -7,6 +7,9 @@ use App\Http\Controllers\FormBuilder;
 use App\Http\Controllers\FormController;
 
 use App\Http\Controllers\RazorpayPaymentController;
+use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Auth\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +26,7 @@ Route::get('/form-dashboard', [FormBuilder::class,'showDashboardBuilder'])->name
 //Route::get('/form', [FormBuilder::class,'showBuilder'])->name('form');
 
 Route::get('/show-form', [FormBuilder::class,'showForm'])->name('show.form');
-Route::get('/show-dashboardform', [FormBuilder::class,'showDashboardForm'])->name('show.dashboardform');
+Route::get('/show-dashboardform', [FormBuilder::class,'showDashboardForm'])->name('show.dashboardform')->middleware('auth');
 Route::post('/save-form', [FormBuilder::class,'saveForm'])->name('save.form');
 Route::post('/save-dashboardform', [FormBuilder::class,'saveDashboardForm'])->name('save.dashboardform');
 Route::post('/submit-form', [FormBuilder::class,'handleFormRequest'])->name('submit.form');
@@ -51,3 +54,13 @@ Route::get('razorpay-payment-page', [RazorpayPaymentController::class, 'response
 Route::post('razorpay-payment-page', [RazorpayPaymentController::class, 'index'])->name('payment.page');
 Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Auth::routes();
+
+Route::post('/signin', [LoginController::class, 'index'])->name('app.signin');
+Route::get('/signout', [LoginController::class, 'logout'])->name('app.signout');
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

@@ -65,7 +65,7 @@
         </div>
         <div class="col-lg-5 px-5 text-end">
           <div class="h-100 d-inline-flex align-items-center">
-            <a class="text-white-50 ms-4" href="{{ route('show.dashboardform', 1) }}">Login</a>
+            <a class="text-white-50 ms-4" href="{{ route('login') }}">Login</a>
             <a class="text-white-50 ms-4" href="">SignUp</a>
           </div>
         </div>

@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Validator, DB, Mail};
 use App\{Form, FormField, DbFormField, Field};
 use App\Mail\FormSubmitted;
 use App\Models\category;
 use App\Models\service;
+use App\Models\verifiedUser;
 
 class FormBuilder extends Controller
 {
@@ -92,6 +93,7 @@ class FormBuilder extends Controller
 
     public function showDashboardBuilder(Request $request) {
         $service_id = $request->keys()[0];
+        dd(Auth::user()->id);
 
         $form_id = Form::where('service_id', $service_id)->pluck('id');
 
@@ -209,9 +211,10 @@ class FormBuilder extends Controller
     /**
      * show the form
      */
-    public function showDashboardForm(Request $request) {
+    public function showDashboardForm() {
 
-        $service_id = $request->keys()[0];
+        $user = Auth::user();
+        $service_id = verifiedUser::where('email', $user->email)->pluck('provider_id')[0];
 
         $form_id_toshow = Form::where('service_id', $service_id)->pluck('id');
         $categories=category::all();

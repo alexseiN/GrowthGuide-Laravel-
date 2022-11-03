@@ -192,7 +192,7 @@
 
                                         @switch($field->field_type)
                                             @case("select")
-                                                <select id="{{ $id_for }}" name={{ $field_name }} class="custom-select @error($field_name) is-invalid @enderror">
+                                                <select id="{{ $id_for }}" name={{ strtolower($options->label) }} class="custom-select @error($field_name) is-invalid @enderror">
                                                     <option value="">Choose...</option>
                                                     @foreach(explode(",", $options->values) as $value)
                                                     <option value="{{ trim($value) }}" {{ old($field_name) == trim($value)? "selected" : "" }}>{{ trim($value) }}</option>
@@ -201,11 +201,11 @@
                                                 @break
 
                                             @case("textarea")
-                                                <textarea class="form-control @error($field_name) is-invalid @enderror" id="{{ $id_for }}" name="{{ $field_name }}" rows="{{ $options->rows }}">{{ old($field_name) }}</textarea>
+                                                <textarea class="form-control @error($field_name) is-invalid @enderror" id="{{ $id_for }}" name="{{ strtolower($options->label) }}" rows="{{ $options->rows }}">{{ old($field_name) }}</textarea>
                                                 @break
 
                                             @default
-                                                <input required type="{{ $options->type == 'date' ? 'text' : $options->type }}" class="form-control {{ $options->type == 'date'? 'datepicker' : '' }} @error($field_name) is-invalid @enderror" name="{{ $field_name }}" id="{{ $id_for }}" value="{{ old($field_name) }}" />
+                                                <input required type="{{ $options->type == 'date' ? 'text' : $options->type }}" class="form-control {{ $options->type == 'date'? 'datepicker' : '' }} @error($field_name) is-invalid @enderror" name="{{ strtolower($options->label) }}" id="{{ $id_for }}" value="{{ old($field_name) }}" />
                                         @endswitch
 
                                         @error($field_name)

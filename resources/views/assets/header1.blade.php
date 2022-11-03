@@ -13,7 +13,7 @@
                     <li class="list_btn" onclick="openPopup()">Home</li>
                     <li class="list_btn"> My Profile</li>
                     <li class="list_btn"> Contact US</li>
-                    <a href="{{ route('app.homepage') }}"><li class="list_btn"> Logout </li></a>
+                    <a href="{{ route('app.signout') }}"><li class="list_btn"> Logout </li></a>
                 </ul>
             </div>
 
