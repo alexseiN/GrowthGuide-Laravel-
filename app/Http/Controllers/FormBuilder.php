@@ -93,7 +93,6 @@ class FormBuilder extends Controller
 
     public function showDashboardBuilder(Request $request) {
         $service_id = $request->keys()[0];
-        dd(Auth::user()->id);
 
         $form_id = Form::where('service_id', $service_id)->pluck('id');
 

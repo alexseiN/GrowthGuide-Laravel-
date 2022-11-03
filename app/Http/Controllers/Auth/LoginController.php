@@ -65,13 +65,14 @@ class LoginController extends Controller
         $password = $request->password;
         $finduser = User::where('email', $email)->exists();
         $user = User::where('email', $email)->first();
-        $service_id = verifiedUser::where('email', $email)->pluck('provider_id')[0];
         if ($finduser) {
-            Auth::login($user);
             if ($user->password == md5($password)) {
+                Auth::login($user);
                 return redirect('/show-dashboardform');
             }
-            else return redirect('/login');
+            else {
+                return redirect('/login');
+            }
         }
         else {
             return redirect('/login');
