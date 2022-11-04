@@ -236,7 +236,7 @@ class FormBuilder extends Controller
         ];
 
         //return view('form', $data);
-        return view('dashboard', $data, ['categories'=>$categories,'services'=>$services]);
+        return view('dashboard', $data, ['categories'=>$categories,'services'=>$services, 'service_id'=>$service_id]);
     }
 
 
@@ -333,13 +333,13 @@ class FormBuilder extends Controller
                         return trim($opt);
                     })->implode(',');
 
-                    $additional_config = ['values' => $values];
+                    $additional_config = ['values' => $values, 'type' => 'select'];
                     break;
 
                 case 'textarea':
                     $field_id = $fields->search('textarea');
 
-                    $additional_config = ['rows' => $field->additionalConfig->textAreaRows];
+                    $additional_config = ['rows' => $field->additionalConfig->textAreaRows, 'type'=>'textarea'];
                     break;
 
                 case 'date':
@@ -429,13 +429,13 @@ class FormBuilder extends Controller
                         return trim($opt);
                     })->implode(',');
 
-                    $additional_config = ['values' => $values];
+                    $additional_config = ['values' => $values, 'type' => 'select'];
                     break;
 
                 case 'textarea':
                     $field_id = $fields->search('textarea');
 
-                    $additional_config = ['rows' => $field->additionalConfig->textAreaRows];
+                    $additional_config = ['rows' => $field->additionalConfig->textAreaRows, 'type' => 'textarea'];
                     break;
 
                 case 'date':

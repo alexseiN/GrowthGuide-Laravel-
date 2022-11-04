@@ -4,8 +4,8 @@
                 <div id="logo">
                 </div>
                 <ul>
-                    <li class="item"><a href="" target="_blank"> Dashboard </a></li>
-                    <li class="item"><a href="myorder.php" target="_blank"> My Order </a></li>
+                    <li class="item"><a href="{{ route('show.dashboardform') }}"> Dashboard </a></li>
+                    <li class="item"><a href="{{ route('show.order') }}"> My Order </a></li>
                 </ul>
             </div>
             <div id="second">

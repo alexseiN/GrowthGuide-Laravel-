@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\categorycontroller;
 use App\Http\Controllers\FormBuilder;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\Auth\GoogleController;
@@ -64,3 +65,6 @@ Route::post('/signin', [LoginController::class, 'index'])->name('app.signin');
 Route::get('/signout', [LoginController::class, 'logout'])->name('app.signout');
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+Route::post('/placeorder', [OrderController::class, 'placeOrder'])->name('submit.order');
+Route::get('/myorder', [OrderController::class, 'showMyOrder'])->name('show.order');

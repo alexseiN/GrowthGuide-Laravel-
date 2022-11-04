@@ -37,7 +37,7 @@ class RazorpayPaymentController extends Controller
         $email = Session::get('email');
         $service_id = Session::get('service_id');
         verifiedUser::updateOrCreate(['email' => $email], ['provider_id' => $service_id]);
-        User::updateOrCreate(['email' => $email ,'provider_id' => $service_id, 'password' => md5("123456") ,'name' => 'username']);
+        User::updateOrCreate(['email' => $email] ,['provider_id' => $service_id, 'password' => md5("123456") ,'name' => 'username']);
         return view('auth.login');
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDbFormFields extends Migration
+class CreateCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateDbFormFields extends Migration
      */
     public function up()
     {
-        Schema::create('db_form_fields', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->foreignId('form_id')
-                    ->constrained('forms')
+        Schema::create('customers', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')
+                    ->constrained('users')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-            $table->integer('form_id');
-            $table->integer('field_id');
-            $table->json('options')->nullable();
+            $table->integer('status');
+            $table->timestamps();
         });
     }
 
@@ -32,6 +31,6 @@ class CreateDbFormFields extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('db_form_fields');
+        Schema::dropIfExists('customers');
     }
 }
