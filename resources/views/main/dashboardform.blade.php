@@ -15,6 +15,7 @@
       <div>
         <div class="col-md-12 col-sm-12 d-flex align-items-center justify-content-center">
           <form class="contact w-50" action="{{ route('form.respond') }}" method="POST">
+            @csrf
             <h2>Dashboard Form</h2>
             @if($errors->any())
                     <div class="alert alert-danger" role="alert">

@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::get('/service-delete/{id}', [categorycontroller::class, 'servicedelete'])
 
 Route::post('/form/respond', [FormController::class, 'respond'])->name('form.respond');
 Route::get('/forms/responses', [FormController::class, 'allResponses'])->name('forms.responses');
+Route::get('/forms/customers', [FormController::class, 'allCustomers'])->name('forms.customers');
 
 Route::get('razorpay-payment-page', [RazorpayPaymentController::class, 'response'])->name('payment_response.page');
 Route::post('razorpay-payment-page', [RazorpayPaymentController::class, 'index'])->name('payment.page');
@@ -68,3 +70,6 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 
 Route::post('/placeorder', [OrderController::class, 'placeOrder'])->name('submit.order');
 Route::get('/myorder', [OrderController::class, 'showMyOrder'])->name('show.order');
+Route::get('/showOrderResponses', [OrderController::class, 'getOrderResponses'])->name('show.orders');
+Route::post('/sendOrderResponses', [OrderController::class, 'SendOrderResponses'])->name('orders.response');
+Route::get('/filedownload', [FileController::class, 'filedownload'])->name('file.download');

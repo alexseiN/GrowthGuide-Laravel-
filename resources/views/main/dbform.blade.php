@@ -142,6 +142,7 @@
       <div class="row">
         <div class="pull-left col-md-6 col-sm-12">
           <form class="contact" action="{{ route('payment.page') }}" method="POST">
+            @csrf
             <h2>@php
                 foreach ($services as $service) {
                     if ($service->id == array_key_first($_GET)) {

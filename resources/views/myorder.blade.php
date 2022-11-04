@@ -19,12 +19,7 @@
     <p>Please submit your order!</p>
 
 @else
-    @if($status === 1)
-        <p>In Progress</p>
-    @else
-        <p>Completed</p>
-    @endif
-
+    @include ('responseform', ['orders' => $orders, 'status' => $status, 'user_id' => Auth::user()->id])
 @endif
 
 </body>

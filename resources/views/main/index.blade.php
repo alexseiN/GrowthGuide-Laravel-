@@ -317,6 +317,7 @@
           <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
             <div class="bg-white rounded p-5">
               <form>
+                @csrf
                 <div class="row g-3">
                   <div class="col-sm-6">
                     <div class="form-floating">

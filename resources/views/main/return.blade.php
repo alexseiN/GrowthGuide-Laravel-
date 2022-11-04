@@ -139,6 +139,7 @@
       <div class="row">
         <div class="pull-left col-md-6 col-sm-12">
           <form class="contact">
+            @csrf
             <h2>GST Return Form</h2>
             <p>Submit your details here</p>
             <div class="form-group">
