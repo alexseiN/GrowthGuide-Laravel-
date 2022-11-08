@@ -75,12 +75,12 @@
                             </td>
                             <td class="col-sm-6 col-md-6">
                                 @if($order->field_type == "file")
-                                    @php $extension = explode('.', $order->field_value)[1] @endphp
+                                    @php $extension = substr($order->field_value, strpos($order->field_value, ".") + 1); @endphp
                                     @if(is_null($order->field_value) == false)
                                         <a href="{{ env('APP_URL').$order->field_value }}" download="{{ $order->field_name.'.'.$extension }}">Download</a>
                                         {{ $order->field_name.'.'.$extension }}
                                     @endif
-                                    @if($admin)
+                                    @if(isset($admin) && $admin)
                                         <input class="form-control" type="{{ $order->field_type }}" name="{{ $order->field_name }}" value="{{ old($order->field_name) }}">
                                     @endif
                                 @else
@@ -93,7 +93,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                @if($admin)
+                @if(isset($admin) && $admin)
                     <input type="submit" class="btn btn-success btn-lg btn-block">
                 @endif
                 </div>

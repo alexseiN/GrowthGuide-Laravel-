@@ -37,8 +37,9 @@ class OrderController extends Controller
         Order::updateOrCreate(['user_id' => $user->id, 'field_name' => 'reference', 'field_type'=>'file'], ['field_value' => null]);
         Order::updateOrCreate(['user_id' => $user->id, 'field_name' => 'message', 'field_type'=>'textarea'], ['field_value' => null]);
         $status = 1;
+        $orders = Order::where('user_id', $user->id)->get();
         Customer::updateOrCreate(['user_id' => $user->id], ['status' => 1]);
-        return view('myorder', ['status' => $status]);
+        return view('myorder', ['status' => $status, 'orders' => $orders, 'admin' => false]);
     }
 
     public function showMyOrder() {
