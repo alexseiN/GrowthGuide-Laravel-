@@ -11426,3 +11426,14 @@ textarea.form-control-lg {
     left:5px;
 	top:5px;
 }
+
+.service-content input {
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.service-content textarea {
+    padding: 5px;
+    margin-bottom: 20px;
+    height: 90px;
+}

@@ -32,9 +32,9 @@
 
                         <a class="collapse-item" href="{{ route('app.home', 1) }}">Create Services Form</a>
                         <hr>
-                        <a class="collapse-item" href="{{ route('app.dashboardform', 1) }}">Create Dashboard Form</a>
+                        <a class="collapse-item" href="{{ route('app.serviceinfo', 1) }}">Create Service Info </a>
                         <hr>
-                        <a class="collapse-item" href="/categories&services">Create User Form </a>
+                        <a class="collapse-item" href="{{ route('app.dashboardform', 1) }}">Create Dashboard Form</a>
                     </div>
                 </div>
             </li>

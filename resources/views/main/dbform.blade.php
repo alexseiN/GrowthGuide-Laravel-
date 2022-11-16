@@ -33,6 +33,14 @@
   <!-- Template Stylesheet -->
   <link href="css/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/Common.css">
+  <style>
+    a {
+        color: black !important;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+  </style>
   @extends('layouts.formmain')
 </head>
 
@@ -133,10 +141,10 @@
   </div>
   <!-- Page Header End -->
   <div class="banner">
-    <h1 style="text-align: center;">File your GST Return with ease! Your Business ,Our Responsinility</h1>
-    <p style="text-align: center; margin-top:36px;margin-bottom:10px">Let India’s recommended Business Taxation expert
-      file your GST Returns on Time | Digital Assistance to any Corner of the Nation</p>
+    <h1 style="text-align: center;">{{ isset($service_detail)?$service_detail->title:null }}</h1>
+    <p style="text-align: center; margin-top:36px;margin-bottom:10px">{{ isset($service_detail)?$service_detail->subtitle:null }}</p>
   </div>
+
   <section class="mt-20">
     <div class="Container">
       <div class="row">
@@ -229,32 +237,40 @@
       </div>
     </form>
   </div>
-        <div class="col">
-          <p class="pull-right">
-            Every GST registered organization in India is legally responsible for filing a total of 26 GST return filings in a financial year. It may sound problematic to meet up the regulations but with the GST experts’ proper online guidance in Online Legal India, you would be able to complete all the needful steps with ease. The taxpayers are liable to pay the GST filings within a preset time as the Govt. of India use these returns to evaluate the entire tax liability in the country.
-          </p>
-          <h3>With the help of our CA expert from Online Legal India™ get your GST Return filing done in few clicks.</h3>
-          <div class="pannel-heading" role="tab" id="headingOne">
-            <h6 class="pannel-title">
-            <a role="button">Who is Liable for GST filling
-            </a>
-          </h6>
-        </div>
-          <ul>
-            <p>Any individual operating a business entity is accountable for being registered with the GST system and GST filing. The key criteria for which registered business personnel is needed to carry out GST filing:</p>
-            <li>Monthly GST returns</li>
-            <li>Yearly GST returns</li>
-            <li>GST filing for input/purchase</li>
-            <li>GST filing for output/supply</li>
-          </ul>
 
-          <div class="pannel-heading" role="tab" id="headingOne">
+                        @php
+                            $content_arr = array('','','','','');
+                            $detail_arr = array('','','','','');
+                            if (isset($service_detail)) {
+                                $content_arr[0] = $service_detail->content_1;
+                                $content_arr[1] = $service_detail->content_2;
+                                $content_arr[2] = $service_detail->content_3;
+                                $content_arr[3] = $service_detail->content_4;
+                                $content_arr[4] = $service_detail->content_5;
+                                $detail_arr[0] = $service_detail->detail_1;
+                                $detail_arr[1] = $service_detail->detail_2;
+                                $detail_arr[2] = $service_detail->detail_3;
+                                $detail_arr[3] = $service_detail->detail_4;
+                                $detail_arr[4] = $service_detail->detail_5;
+                            }
+                        @endphp
+
+
+        <div class="col">
+          @for ($i = 0; $i < 5; $i ++)
+          <div class="pannel-heading" role="tab">
             <h6 class="pannel-title">
-            <a role="button">Late Fees/Penalty For Failing to Filling The Return On Time
-            </a>
-          </h6>
-        </div>
-        <p class="fee">In case the taxpayer fails to file the GST returns within the specified date provided by the GST department, then taxpayer has to pay late fee along with  interest @18%. The late fee will be Rs.20 per day if it is NIL return or else Rs 50 will be levied if you fail to furnish the return within specified date. Thus, it will come around Rs.25 under the CGST and again Rs.25 under the SGST. The total amount to be paid will be Rs.50 per day. The maximum late fee can be Rs.5000. The IGST do not charge any late fees.</p>
+                <a data-bs-toggle="collapse" href="#collapseExample{{ $i }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    {{ $content_arr[$i] }}
+                </a>
+            </h6>
+          </div>
+          <div class="collapse" id="collapseExample{{ $i }}">
+            <div class="card card-body">
+                {{ $detail_arr[$i] }}
+            </div>
+          </div>
+          @endfor
           </div>
         </div>
       </div>

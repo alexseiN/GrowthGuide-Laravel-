@@ -8,7 +8,9 @@ use App\{Form, FormField, DbFormField, Field};
 use App\Mail\FormSubmitted;
 use App\Models\category;
 use App\Models\service;
+use App\Models\ServiceDetail;
 use App\Models\verifiedUser;
+use Illuminate\Validation\Rules\Exists;
 
 class FormBuilder extends Controller
 {
@@ -88,6 +90,22 @@ class FormBuilder extends Controller
         ];
         //return View::make('builder', $data);
         return view('builder', $data , ['categories'=>$categories,'services'=>$services]);
+    }
+
+    public function showServiceInfo(Request $request) {
+        $service_id = $request->keys()[0];
+
+        $flag = ServiceDetail::where('service_id', $service_id)->exists();
+        $details = ServiceDetail::where('service_id', $service_id)->get();
+
+        $categories=category::all();
+        $services=service::all();
+
+        if ($flag)
+            return view('serviceInfo', ['title' => 'service info', 'categories'=>$categories,'services'=>$services, 'service_detail'=>$details[0]]);
+        else {
+            return view('serviceInfo', ['title' => 'service info', 'categories'=>$categories,'services'=>$services]);
+        }
     }
 
 
@@ -186,6 +204,8 @@ class FormBuilder extends Controller
         $form_id_toshow = Form::where('service_id', $service_id)->pluck('id');
         $categories=category::all();
         $services=service::all();
+        $flag = ServiceDetail::where('service_id', $service_id)->exists();
+        $details=ServiceDetail::where('service_id', $service_id)->get()[0];
 
         if(count($form_id_toshow) == 0) {
             return view('main.return', ['categories'=>$categories,'services'=>$services]);
@@ -203,8 +223,10 @@ class FormBuilder extends Controller
             'field_ids' => implode(",", $field_map_ids)
         ];
 
-        //return view('form', $data);
-        return view('main.dbform', $data, ['categories'=>$categories,'services'=>$services]);
+        if ($flag) {
+            return view('main.dbform', $data, ['categories'=>$categories,'services'=>$services, 'service_detail'=>$details]);
+        }
+        else return view('main.dbform', $data, ['categories'=>$categories,'services'=>$services]);
     }
 
     /**
@@ -303,6 +325,7 @@ class FormBuilder extends Controller
     /**
      * handle form data ajax request save
      */
+
     public function saveForm(Request $request) {
         $request->validate([
             'form_fields_data' => 'required|json',
@@ -395,7 +418,33 @@ class FormBuilder extends Controller
         ]);
     }
 
-        /**
+    public function saveServiceInfo(Request $request) {
+        $service_id = $request->ser_id;
+        $categories=category::all();
+        $services=service::all();
+
+        ServiceDetail::updateOrCreate(
+            ['service_id' => $service_id],
+            ['title'=>$request->title,
+            'subtitle'=>$request->subtitle,
+            'content_1'=>$request->content_1,
+            'detail_1'=>$request->detail_1,
+            'content_2'=>$request->content_2,
+            'detail_2'=>$request->detail_2,
+            'content_3'=>$request->content_3,
+            'detail_3'=>$request->detail_3,
+            'content_4'=>$request->content_4,
+            'detail_4'=>$request->detail_4,
+            'content_5'=>$request->content_5,
+            'detail_5'=>$request->detail_5],
+        );
+
+        return redirect('/service-info?'.$service_id);
+
+    }
+
+
+    /**
      * handle form data ajax request save
      */
     public function saveDashboardForm(Request $request) {

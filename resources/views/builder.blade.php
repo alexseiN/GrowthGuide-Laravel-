@@ -31,6 +31,7 @@
                       @endif
                 </div>
             </form>
+
     </div>
 </div>
 
@@ -39,7 +40,9 @@
 
     <div class="section">
         {{-- react app root --}}
-        <div class="row" id="builder-app"></div>
+        <div class="row" id="builder-app">
+
+        </div>
 
         <div id="modal-root"></div>
     </div>

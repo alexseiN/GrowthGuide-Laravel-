@@ -24,12 +24,14 @@ use App\Http\Controllers\FileController;
 */
 
 Route::get('/form', [FormBuilder::class,'showBuilder'])->name('app.home');
+Route::get('/service-info', [FormBuilder::class,'showServiceInfo'])->name('app.serviceinfo');
 Route::get('/form-dashboard', [FormBuilder::class,'showDashboardBuilder'])->name('app.dashboardform');
 //Route::get('/form', [FormBuilder::class,'showBuilder'])->name('form');
 
 Route::get('/show-form', [FormBuilder::class,'showForm'])->name('show.form');
 Route::get('/show-dashboardform', [FormBuilder::class,'showDashboardForm'])->name('show.dashboardform')->middleware('auth');
 Route::post('/save-form', [FormBuilder::class,'saveForm'])->name('save.form');
+Route::post('/save-serviceinfo', [FormBuilder::class,'saveServiceInfo'])->name('save.serviceinfo');
 Route::post('/save-dashboardform', [FormBuilder::class,'saveDashboardForm'])->name('save.dashboardform');
 Route::post('/submit-form', [FormBuilder::class,'handleFormRequest'])->name('submit.form');
 
