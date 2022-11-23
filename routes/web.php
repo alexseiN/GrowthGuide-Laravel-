@@ -37,7 +37,6 @@ Route::post('/submit-form', [FormBuilder::class,'handleFormRequest'])->name('sub
 
 
 Route::get('/', [categorycontroller::class,'main'])->name('app.homepage');
-
 Route::get('/service', [categorycontroller::class,'serviceform']);
 
 Route::get('/categories&services', [categorycontroller::class,'showcategories']);
@@ -67,6 +66,7 @@ Auth::routes();
 
 Route::post('/signin', [LoginController::class, 'index'])->name('app.signin');
 Route::get('/signout', [LoginController::class, 'logout'])->name('app.signout');
+Route::get('/login', [LoginController::class, 'login'])->name('app.login');
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
@@ -74,4 +74,5 @@ Route::post('/placeorder', [OrderController::class, 'placeOrder'])->name('submit
 Route::get('/myorder', [OrderController::class, 'showMyOrder'])->name('show.order');
 Route::get('/showOrderResponses', [OrderController::class, 'getOrderResponses'])->name('show.orders');
 Route::post('/sendOrderResponses', [OrderController::class, 'SendOrderResponses'])->name('orders.response');
+Route::post('/sendOrderMessage', [OrderController::class, 'SendOrderMessage'])->name('orders.sendMessage');
 Route::get('/filedownload', [FileController::class, 'filedownload'])->name('file.download');

@@ -28,7 +28,7 @@
 
 
 
-				<div class="container">
+				<div class="container float-right col-9 col-lg-9 col-md-9 col-sm-9">
 					@include('layouts.nav')
 					@yield('content')
 				</div>
@@ -36,13 +36,13 @@
 
 		</div>
 </div>
-			<footer id="footer">
+			{{-- <footer id="footer">
 				<section class="copyright p-2 text-center text-white bg-dark">
 					<div class="container">
 						<small>Footer</small>
 					</div>
 				</section>
-			</footer>
+			</footer> --}}
 
 			@stack('scripts')
 

@@ -8,7 +8,7 @@ use App\Models\File;
 use App\Models\Order;
 use App\Models\OrderReponse;
 use App\Models\Customer;
-
+use Session;
 class OrderController extends Controller
 {
     /**
@@ -87,5 +87,39 @@ class OrderController extends Controller
         return view('admin.showOrders', ['orders' => $orders, 'status' => $status, 'user_id' => $user_id, 'admin' => true]);
     }
 
+    public function SendOrderMessage(Request $request) {
+        $user_id = $request -> user_id;
+        $orders = Order::where('user_id', $user_id)->get();
+        $status = 1;
+        $value = null;
+        $field_name = "reference";
 
+        if (is_null($request->reference) == false) {
+            $fileName = $field_name.'_'.time().'.'.$request->reference->extension();
+            $value = 'uploads/'.$fileName;
+            $request[$field_name]->move(public_path('uploads'), $fileName);
+            Order::updateOrCreate(['user_id' => $user_id, 'field_name' => 'reference', 'field_type' => 'file'], ['field_value' => $value]);
+            $status = 2;
+        }
+        Order::updateOrCreate(['user_id' => $user_id, 'field_name' => 'message', 'field_type' => 'textarea'], ['field_value' => $request->message]);
+        Customer::updateOrCreate(['user_id' => $user_id], ['status' => $status]);
+
+        $user = Auth::user();
+        $finduser = Customer::where('user_id', $user->id)->exists();
+        $status = 0;
+        Session::put('success-alert', 'Your message sent successfully!');
+        if ($finduser) {
+            $status = Customer::where('user_id', $user->id)->pluck('status')[0];
+            $orders = Order::where('user_id', $user->id)->get();
+            if ($status === 1) {
+                return view('myorder', ['status' => $status, 'orders' => $orders, 'admin' => false]);
+            }
+            else {
+                return view('myorder', ['status' => $status, 'orders' => $orders, 'admin' => false]);
+            }
+        }
+        else {
+            return view('myorder', ['status' => $status, 'admin' => false]);
+        }
+    }
 }

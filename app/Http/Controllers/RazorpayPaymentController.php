@@ -27,7 +27,6 @@ class RazorpayPaymentController extends Controller
         $services = service::all();
         $categories = category::all();
         $data = $request;
-        Session::put('email', $request->email);
         Session::put('service_id', $service_id);
         return view('razorpayView', $data, ['categories'=>$categories,'services'=>$services, 'service_price'=>$service_price, 'service_name'=>$service_name]);
     }
@@ -50,10 +49,10 @@ class RazorpayPaymentController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
 
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
+        Session::put('email', $payment->email);
 
         if(count($input)  && !empty($input['razorpay_payment_id'])) {
             try {
