@@ -53,6 +53,7 @@ Route::get('/service-delete/{id}', [categorycontroller::class, 'servicedelete'])
 Route::post('/form/respond', [FormController::class, 'respond'])->name('form.respond');
 Route::get('/forms/responses', [FormController::class, 'allResponses'])->name('forms.responses');
 Route::get('/forms/customers', [FormController::class, 'allCustomers'])->name('forms.customers');
+Route::get('/forms/allCustomers', [FormController::class, 'showCustomers'])->name('forms.allCustomers');
 
 Route::get('razorpay-payment-page', [RazorpayPaymentController::class, 'response'])->name('payment_response.page');
 Route::post('razorpay-payment-page', [RazorpayPaymentController::class, 'index'])->name('payment.page');

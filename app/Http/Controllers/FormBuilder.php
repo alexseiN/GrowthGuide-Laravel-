@@ -205,7 +205,6 @@ class FormBuilder extends Controller
         $categories=category::all();
         $services=service::all();
         $flag = ServiceDetail::where('service_id', $service_id)->exists();
-        $details=ServiceDetail::where('service_id', $service_id)->get()[0];
 
         if(count($form_id_toshow) == 0) {
             return view('main.return', ['categories'=>$categories,'services'=>$services]);
@@ -224,6 +223,7 @@ class FormBuilder extends Controller
         ];
 
         if ($flag) {
+            $details=ServiceDetail::where('service_id', $service_id)->get()[0];
             return view('main.dbform', $data, ['categories'=>$categories,'services'=>$services, 'service_detail'=>$details]);
         }
         else return view('main.dbform', $data, ['categories'=>$categories,'services'=>$services]);
@@ -314,7 +314,6 @@ class FormBuilder extends Controller
                 ]
             ];
         });
-
 
         Mail::to("kumawat.k@shim-bi.com")->send(new FormSubmitted($form_data));
          //return new FormSubmitted($form_data);

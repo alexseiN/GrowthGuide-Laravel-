@@ -48,8 +48,10 @@
                 <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="pcollapse">
                         <a class="collapse-item" href="{{ route('forms.customers') }}">All Forms Response</a>
+                        <a class="collapse-item" href="{{ route('forms.allCustomers') }}">All Customers</a>
                     </div>
                 </div>
+
             </li>
         </ul>
 

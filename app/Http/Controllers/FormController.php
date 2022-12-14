@@ -6,7 +6,7 @@ use App\Models\FormResponse;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Validator, DB, Mail};
-use App\{Form, FormField, DbFormField, Field};
+use App\{Form, FormField, DbFormField, Field, Allcustomer};
 use App\Mail\FormSubmitted;
 use App\Models\category;
 use App\Models\service;
@@ -45,4 +45,21 @@ class FormController extends Controller
         }
         return view('admin/allCustomers', ['customers' => $customers]);
     }
+
+    public function showCustomers() {
+        $all_customers = Allcustomer::all();
+        $services = [];
+        foreach($all_customers as $customer) {
+            $service_name = service::where('id', $customer->service_id)->pluck('service_name')[0];
+            $service_price = service::where('id', $customer->service_id)->pluck('price')[0];
+            $service = (object) [
+                'service_name' => $service_name,
+                'price' => $service_price
+            ];
+            array_push($services, $service);
+        }
+        return view('admin/showAllCustomers', ['customers' => $all_customers, 'services' => $services]);
+    }
+
+
 }
